@@ -20,21 +20,22 @@ class Usuario(models.Model):
  
  def __str__(self):
   return f'{self.nome} {self.sobrenome}'
+
+class Genero(models.Model):
+ nome = models.CharField(max_length=20)
+ data_cadastro = models.DateField(default=timezone.now)
+ 
+ def __str__(self):
+  return self.nome
  
 class Filme(models.Model):
  nome = models.CharField(max_length=50)
  ano_lancamento = models.IntegerField()
  estudio = models.CharField(max_length=20)
- genero = models.CharField(max_length=20)
+ # genero = models.CharField(max_length=20)
+ genero = models.ForeignKey(Genero, on_delete=models.SET_NULL, null=True, blank=True)
  sinopse = models.TextField(max_length=500)
  data_cadastro = models.DateTimeField(default=timezone.now)
- 
- def __str__(self):
-  return self.nome
- 
-class Genero(models.Model):
- nome = models.CharField(max_length=20)
- data_cadastro = models.DateField(default=timezone.now)
  
  def __str__(self):
   return self.nome
