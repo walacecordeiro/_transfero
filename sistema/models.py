@@ -16,7 +16,7 @@ class Usuario(models.Model):
  endereco = models.CharField(max_length=100)
  data_cadastro = models.DateTimeField(default=timezone.now)
  ativo = models.BooleanField(default=True)
- # foto =
+ imagem = models.ImageField(blank=True, upload_to='imagens/%Y/%m')
  
  def __str__(self):
   return f'{self.nome} {self.sobrenome}'
