@@ -1,0 +1,29 @@
+<div class="container">
+    <table class="table">
+        <caption class="table-caption">
+            Listagem dos Usuários
+        </caption>
+
+        <thead>
+            <tr class="table-row table-row-header">
+                <th class="table-header">Id</th>
+                <th class="table-header">Nome</th>
+                <th class="table-header">Sobrenome</th>
+                <th class="table-header">Email</th>
+                <th class="table-header">Telefone</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for usuario in usuarios %}
+                <tr class="table-row">
+                    <td class="table-cell">{{usuario.id}}</td>
+                    <td class="table-cell">{{usuario.nome}}</td>
+                    <td class="table-cell">{{usuario.sobrenome}}</td>
+                    <td class="table-cell">{{usuario.email}}</td>
+                    <td class="table-cell">{{usuario.telefone}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
