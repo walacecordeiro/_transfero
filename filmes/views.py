@@ -25,13 +25,13 @@ def cadastrarFilme(request):
         
         if form.is_valid():
             form.save()
-            return redirect('listar-filmes')
+            return redirect('listar')
         
     else:
         form = FilmeForm()
     
     return render(
         request,
-        'filmes/cadastro.html',
+        'filmes/cadastrar.html',
         {'form': form}
     )
