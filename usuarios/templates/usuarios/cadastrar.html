@@ -1,17 +1,133 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro</title>
+    {% include "partials/_head.html" %}
   </head>
   <body>
-    <h1>Cadastro de Usuário</h1>
+    <header>{% include "partials/_header.html" %}</header>
+    <main class="cadastro-body">
+      <div class="cadastro-left-container">
+        <h1>Bem vindo a nossa página de suporte</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sit
+          quia quaerat animi!
+        </p>
+        <img
+          src="{% static '/global/assets/images/support-banner-image.jpg' %}"
+          alt=""
+        />
+      </div>
 
-    <form action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %} 
-      {{form.as_p}}
-      <button type="submit">Cadastrar</button>
-    </form>
+      <div class="cadastro-right-container">
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %} {{form.as_p}}
+          <div class="actions">
+            <div class="checkbox">
+              <input type="checkbox" name="tesdf" id="" />
+              <span>Eu aceito os termos de uso e política de privacidade</span>
+            </div>
+            <button type="submit">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+
+      <style>
+        .cadastro-body {
+          display: grid;
+          grid-template-columns: 40% 1fr;
+          align-items: center;
+          background-color: #141414;
+          border-radius: 6px;
+          gap: 40px;
+          padding: 38px;
+          max-width: 1000px;
+          margin: 120px auto;
+        }
+
+        .cadastro-left-container {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .cadastro-left-container p {
+          color: rgba(255, 255, 255, 0.603);
+        }
+
+        .cadastro-left-container img {
+          object-position: center;
+          object-fit: cover;
+          border: 5px solid #1c1c1c;
+          border-radius: 8px;
+          width: 100%;
+          height: auto;
+        }
+
+        .cadastro-right-container {
+          height: fit-content;
+          padding: 20px;
+          background-color: #0f0f0f;
+          border: 1px solid #1c1c1c;
+          border-radius: 8px;
+        }
+
+        .cadastro-right-container form {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+
+        .cadastro-right-container form p {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .cadastro-right-container input {
+          width: 100%;
+          padding: 14px;
+          border: 1px solid #1c1c1c;
+          border-radius: 8px;
+          margin-bottom: 10px;
+          background-color: #141414;
+          color: #fff;
+        }
+
+        .actions {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          align-items: center;
+          grid-column: 1 / -1;
+          font-size: 12px;
+        }
+        .actions .checkbox {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.603);
+        }
+
+        .actions input {
+          width: 16px;
+          margin-right: 8px;
+        }
+
+        .actions button {
+          cursor: pointer;
+          background-color: #e50914;
+          color: #fff;
+          padding: 12px 24px;
+          border: none;
+          border-radius: 8px;
+          font-weight: bold;
+        }
+
+        .actions button:hover {
+          background-color: #b00610;
+        }
+      </style>
+    </main>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <footer>{% include "partials/_footer.html" %}</footer>
   </body>
 </html>
